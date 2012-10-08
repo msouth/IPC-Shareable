@@ -452,7 +452,7 @@ sub STORESIZE {
     my $n    = shift;
 
     $self->{_data} = _thaw($self->{_shm}) unless $self->{_lock};
-    $#{@{$self->{_data}}} = $n - 1;
+    $#{$self->{_data}} = $n - 1;
     if ($self->{_lock} & LOCK_EX) {
         $self->{_was_changed} = 1;
     } else {
